@@ -12,29 +12,29 @@ public class Main {
         Scanner userInput = new Scanner(System.in);
 
         //Program waiting for an input.
-            System.out.println("Insert a word and lets see if it's a abecedarian: ");
+            System.out.println("Type a word and lets see if it's an abecedarian: ");
             String word = userInput.next();
 
         //Invokes method.
-        if (isAbecedarian(word) == true) {
-            System.out.println("The inserted word is abecedarian!");
+        if (isAbecedarian(word)) {
+            System.out.println("The word is abecedarian!");
         }else {
-            System.out.println("The inserted word is not abecedarian!");
+            System.out.println("The word is not abecedarian!");
         }
 
     }
 
     public static boolean isAbecedarian(String s) {
 
-        //For loop.
-        for (char c = 0; c < s.length() - 1; c++) {
+        //For loop. Starting at index 1.
+        for (char c = 1; c < s.length(); c++) {
 
-           //Not 100% sure what happens here.
-           if (s.charAt(c) <= s.charAt(c + 1)) {
+           //Checking if the letter is bigger or equal to the previous index letter.
+           if (s.charAt(c) >= s.charAt(c - 1)) {
            }
            else {
-               //Returns if input is not abecedarian.
-               return (false);
+           //Returns if input is not abecedarian.
+           return (false);
            }
         }
         //Returns if input is abecedarian.
